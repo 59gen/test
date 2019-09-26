@@ -1,0 +1,44 @@
+.tippy-tooltip.blue-theme {
+  color: #fff;
+  -webkit-box-shadow: 0 0 20px 4px rgba(154, 161, 177, 0.15), 0 4px 80px -8px rgba(36, 40, 47, 0.25), 0 4px 4px -2px rgba(91, 94, 105, 0.15);
+          box-shadow: 0 0 20px 4px rgba(154, 161, 177, 0.15), 0 4px 80px -8px rgba(36, 40, 47, 0.25), 0 4px 4px -2px rgba(91, 94, 105, 0.15);
+  background-color: #00f;
+}
+
+.tippy-tooltip.blue-theme[x-placement^=top] .tippy-arrow {
+  border-top: 8px solid #00f;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  left: 0px !important;
+}
+
+.tippy-tooltip.blue-theme[x-placement^=bottom] .tippy-arrow {
+  border-bottom: 8px solid #00f;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+
+.tippy-tooltip.blue-theme[x-placement^=left] .tippy-arrow {
+  border-left: 8px solid #00f;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+.tippy-tooltip.blue-theme[x-placement^=right] .tippy-arrow {
+  border-right: 8px solid #00f;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+.tippy-tooltip.blue-theme .tippy-backdrop {
+  background-color: #00f;
+}
+
+.tippy-tooltip.blue-theme .tippy-roundarrow {
+  fill: #00f;
+}
+
+.tippy-tooltip.blue-theme[data-animatefill] {
+  background-color: initial;
+}
+/*# sourceMappingURL=tippy-blue.css.map */

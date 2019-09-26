@@ -1,0 +1,219 @@
+
+/* PC版 */
+#step_flow .step{
+	display: flex;
+	width: 100%;
+	list-style: none;
+	overflow:hidden;
+	padding: 0;
+  }
+  #step_flow .step .borders{
+	border-bottom: 1px solid;
+	color:  #c8c3c6;
+	margin: 5px 20px 10px 20px;
+  }
+  #step_flow ul{
+	padding : 0;
+  }
+  #step_flow li:not(:first-of-type){
+	padding-left: 10px;
+  }
+  #step_flow .step svg path{
+	fill: #91878D;
+  }
+  #step_flow .step .current, #step_flow .step .current svg path, #step_flow .step .current .borders{
+	fill: #FFFFFF;
+	color: #FFFFFF;
+	background-color: #19A3DE;
+  }
+  #step_flow .step-item{
+	position: relative;
+	background: #E5EDF3;
+	color: #91878D;
+	text-align: center;
+	font-size: 12px;
+	padding: 40px 0 40px;
+	flex: 1 1;
+  }
+//   #step_flow .step-item:last-child:before,
+//   #step_flow .step-item:last-child:after{
+// 	display:none;
+//   }
+//   #step_flow .step-item:before,
+//   #step_flow .step-item:after{
+// 	content: "";
+// 	position: absolute;
+// 	width: 0;
+// 	height: 0;
+// 	margin: auto;
+//   }
+//   #step_flow .step-item:before{
+// 	top:-15px;
+// 	right:-1em;
+// 	border-style: solid;
+// 	border-color: transparent transparent transparent #fff;
+// 	border-width: 90px 0 90px 1em;
+// 	z-index: 10;
+//   }
+//   #step_flow .step-item:after{
+// 	top: -18px;
+// 	right: -0.8em;
+// 	border-style: solid;
+// 	border-color: transparent transparent transparent #E5EDF3;
+// 	border-width: 90px 0 90px 1em;
+// 	z-index: 10;
+//   }
+//   #step_flow .step .current:after{
+// 	top: -18px;
+// 	right: -0.8em;
+// 	border-style: solid;
+// 	border-color: transparent transparent transparent #19A3DE;
+// 	border-width: 90px 0 90px 1em;
+// 	z-index: 10;
+//   }
+  /* ここまで
+  
+  /* SP版 */
+
+// $base_vw: 375px;
+// border-widthに%が指定できないため、計算上のwidth50%を作成する ( 100vw - (12px * 2 + 16px * 2) ) / 2
+$step_width_lr: calc(50vw - 28px);
+
+  @media (max-width: 575px) {
+	#step_flow .step{
+	  display:block;
+	  list-style-type: none;
+	  padding:0;
+	  top: 0;
+	  margin:0;
+	  .step-item {
+		margin: 0;
+		&:nth-child(n+2) {
+			margin-top: 1.5px;
+		}
+
+		// 共通の設定
+		height: 96px;
+		width: 100%;
+		&::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			width: 100%;
+			// z-index: 1;
+			height: 25.5px;
+			// height: 100%;
+			border-style: solid;
+			border-width: 25.5px $step_width_lr 0px $step_width_lr;
+			border-color: #fff transparent transparent transparent;
+			top: 0px;
+			
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			width: 100%;
+			z-index: 1;
+			height: 25.5px;
+			// height: 100%;
+			border-style: solid;
+			border-width: 25.5px $step_width_lr 0px $step_width_lr;
+			border-color: #E5EDF3 transparent transparent transparent;
+
+			top: 96px;
+		}
+		&.current {
+			&::after {
+				border-color: #19A3DE transparent transparent transparent;
+			}
+		}
+		// 最初だけ
+		&:first-child {
+			&::before {
+				display: none;
+			}
+			height: 88px;
+			&::after {
+				top: 88px;
+			}
+		}
+		// 最後だけ
+		&:last-child {
+			height: 119px;
+			&::after {
+				display: none;
+			}
+		}
+	
+	  }
+	}
+	// #step_flow .step-item:last-child:before,
+	// #step_flow .step-item:last-child:after{
+	//   display:none;
+	// }
+	// #step_flow .step .step-item{
+	//   position: relative;
+	//   width:100%;
+	//   background: #E5EDF3;
+	//   padding: 0 1rem 0 1rem;
+	//   text-align:center;
+	//   box-sizing: border-box;
+	//   margin-top: 2px;
+	// }
+	// #step_flow .step .step-item .borders{
+	//   margin: 5px 50px 10px 50px;
+	// }
+	// #step_flow .borders + div{
+	//   z-index: 11;
+	//   position: relative;
+	// }
+	// #step_flow .step .step-item:last-child{
+	//   padding-bottom: 1rem;
+	// }
+	// #step_flow .step .step-item:first-child{
+	//   padding-top: 1.8rem;
+	// }
+	// #step_flow .step .step-item:nth-child(2){
+	//   padding-top: 3em;
+	// }
+	// #step_flow .step .step-item:nth-child(n+3){
+	//   padding-top: 3.3em;
+	// }
+	// #step_flow .step .step-item::before{
+	//   content: "";
+	//   position: absolute;
+	//   width: 0;
+	//   height: 0;
+	//   bottom: -149px;
+	//   left: -33px;
+	//   border-style: solid;
+	//   border-color: #fff transparent transparent transparent;
+	//   border-width: 31px 50vw 0 50vw;
+	//   z-index: 10;
+	//   width: 100%;
+	// }
+	// #step_flow .step .step-item::after{
+	//   content: "";
+	//   position: absolute;
+	//   width: 0;
+	//   height: 0;
+	//   bottom: -146px;
+	//   left: -33px;
+	//   border-style: solid;
+	//   border-color: #E5EDF3 transparent transparent transparent;
+	//   border-width: 31px 50vw 0 50vw;
+	//   z-index: 10;
+	//   width: 100%;
+	// }
+	// #step_flow .step .current{
+	//   background: #19A3DE;
+	// }
+	// #step_flow .step .current::after{
+	//   border-color: #19A3DE transparent transparent transparent;
+	//   bottom: -136px;
+	// }
+	// #step_flow .step .current::before{
+	//   bottom: -140px;
+	// }
+  }

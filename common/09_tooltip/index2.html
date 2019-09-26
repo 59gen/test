@@ -1,0 +1,122 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tooltip.js</title>
+
+      <!-- jquery-3.3.1 -->
+      <script src="./plugins/jquery-3.3.1.min.js"></script>
+
+      <!-- 独自ｃｓｓ -->
+	<link href="./css/index2.css" rel="stylesheet">
+
+</head>
+  <body>
+
+
+    <div style="margin-left: 150px; margin-right:150px;">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        test1<input id="test1" />
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        test2<input id="test2" />
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        test3<input id="test3" />
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        test4<input id="test4">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="btn-box">
+            <label for="test11_1">
+                <input type="checkbox" value="1" name="test11" id="test11_1" />あああ
+            </label>
+            <label for="test11_2">
+                <input type="checkbox" value="1" name="test11" id="test11_2" />tooltipいいい
+            </label>
+            <label for="test11_3">
+                <input type="checkbox" value="1" name="test11" id="test11_3" />ううう
+            </label>
+        </div>
+        <div class="btn-box">
+            <label for="test12_1">
+                <input type="radio" value="1" name="test12" id="test12_1" />かかか
+            </label>
+            <label for="test12_2">
+                <input type="radio" value="1" name="test12" id="test12_2" />ききき
+            </label>
+            <label for="test12_3">
+                <input type="radio" value="1" name="test12" id="test12_3" />tooltipくくく
+            </label>
+            <label for="test12_3">
+                <input type="radio" value="1" name="test12" id="test12_3" />けけけ
+            </label>
+        </div>
+    </div>
+
+
+    <div class="tooltip" role="tooltip">
+        <div class="tooltip-arrow"></div>
+        <div class="tooltip-inner"><div>
+    </div>
+
+
+<!-- tooltip & popper -->
+<script src="https://unpkg.com/popper.js@^1"></script>
+<script src="https://unpkg.com/tooltip.js@^1"></script>
+
+<script>
+
+// tooltip
+// document.querySelector　又は　jQueryのエレメントを指定する
+// https://popper.js.org/tooltip-documentation.html
+  const TooltipInstance = new Tooltip($('#test11_2'), {
+      placement: 'top-end',
+      html:true,
+      template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"><div></div></div></div>',
+      title: '<div class="tooltip-primary">テスト画面で「１ヶ月」になっていたので「１か月」に修正をお願いします。</div>',
+    //   title: 'あいうえお',
+      trigger: "focus",
+      delay : { show: 100, hide: 100},
+  });
+  const TooltipInstance2 = new Tooltip($('#test12_3'), {
+      placement: 'top-end',
+      html:true,
+      template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"><div></div></div></div>',
+      title: '<div class="tooltip-caution">詳細な内容を確認するため、当行担当者よりご連絡させていただく場合があります。</div>',
+    //   title: 'あいうえお',
+      trigger: "focus",
+      delay : { show: 100, hide: 100},
+  });
+$('#test11_3').on('keyup', function(){
+    TooltipInstance2.hide();
+});
+
+//   TooltipInstance.show();
+//   TooltipInstance2.show();
+
+
+
+</script>
+</html>

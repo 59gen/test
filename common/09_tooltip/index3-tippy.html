@@ -1,0 +1,150 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tooltip.js</title>
+
+      <!-- jquery-3.3.1 -->
+      <script src="./plugins/jquery-3.3.1.min.js"></script>
+
+      <!-- 独自ｃｓｓ -->
+	<link href="./css/index3.css" rel="stylesheet">
+
+</head>
+<body>
+
+
+    <div style="margin-left: 150px; margin-right:150px;">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        test1<input id="test1" />
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        test2<input id="test2" />
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        test3<input id="test3" />
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        test4<input id="test4">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="btn-box">
+            <label for="test11_1">
+                <input type="checkbox" value="1" name="test11" id="test11_1" />あああ
+            </label>
+            <label for="test11_2">
+                <input type="checkbox" value="1" name="test11" id="test11_2" />tooltipいいい
+            </label>
+            <label for="test11_3">
+                <input type="checkbox" value="1" name="test11" id="test11_3" />ううう
+            </label>
+        </div>
+        <div class="btn-box">
+            <label for="test12_1">
+                <input type="radio" value="1" name="test12" id="test12_1" />かかか
+            </label>
+            <label for="test12_2">
+                <input type="radio" value="1" name="test12" id="test12_2" />ききき
+            </label>
+            <label for="test12_3">
+                <input type="radio" value="1" name="test12" id="test12_3" />tooltipくくく
+            </label>
+            <label for="test12_3">
+                <input type="radio" value="1" name="test12" id="test12_3" />けけけ
+            </label>
+        </div>
+    </div>
+
+    <button type="button" id="btnShow">くくく表示</button>
+    <button type="button" id="btnHide">くくく非表示</button>
+
+<style>
+
+</style>
+
+<!-- popper & tippy -->
+<script src="https://unpkg.com/popper.js@1"></script>
+<script src="./plugins/tippyjs/tippy.js"></script>
+<link rel="stylesheet" href="./css/tippy-blue.css" />
+
+<script>
+
+
+const tip_test1 = tippy('#test1', {
+    arrow: true,
+    trigger: "mouseenter focus",
+    onShow: function(elem){
+        if( $(elem.reference).val() !== '' ) return false;
+        // console.log(elem,"elem");
+        // setTimeout(function(){
+        //     elem.hide();
+        // },2000);
+        return true;
+    },
+    hideOnClick: false,
+    content: "I'm a Tippy tooltip!",
+    theme: 'blue input',
+    placement:'top-start',
+    // offset: 100,
+})
+
+// 要件：hover,focusで表示
+// キー入力で非表示
+// フォーカスアウトで非表示
+$('#test1').on('keyup', function(){
+    if($(this).val() !== '') tip_test1[0].hide();
+});
+
+
+
+//案２．hover、focusで表示
+//クリックで非表示
+tippy('#test2', {
+    arrow: true,
+    trigger: "mouseenter focus",
+    // hideOnClick: false,
+    content: "I'm a Tippy tooltip!",
+    theme: 'blue',
+})
+
+const tipc = tippy('#test12_3', {
+    arrow: true,
+    placement: 'top',
+    // trigger: 'hover', // or 'focus'
+    content: "詳細な内容を確認するため、当行担当者よりご連絡させていただく場合があります。",
+    theme: 'blue input',
+})
+
+
+$('#btnShow').on('click', function(){
+    tipc[0].show();
+});
+$('#btnHide').on('click', function(){
+    tipc[0].hide();
+});
+
+
+
+</script>
+</body>
+</html>

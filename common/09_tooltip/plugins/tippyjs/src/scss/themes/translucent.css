@@ -1,0 +1,40 @@
+.__NAMESPACE_PREFIX__-tooltip.translucent-theme {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.__NAMESPACE_PREFIX__-tooltip.translucent-theme[x-placement^='top'] .__NAMESPACE_PREFIX__-arrow {
+  border-top: 7px solid rgba(0, 0, 0, 0.7);
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+}
+
+.__NAMESPACE_PREFIX__-tooltip.translucent-theme[x-placement^='bottom'] .__NAMESPACE_PREFIX__-arrow {
+  border-bottom: 7px solid rgba(0, 0, 0, 0.7);
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+}
+
+.__NAMESPACE_PREFIX__-tooltip.translucent-theme[x-placement^='left'] .__NAMESPACE_PREFIX__-arrow {
+  border-left: 7px solid rgba(0, 0, 0, 0.7);
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+}
+
+.__NAMESPACE_PREFIX__-tooltip.translucent-theme[x-placement^='right'] .__NAMESPACE_PREFIX__-arrow {
+  border-right: 7px solid rgba(0, 0, 0, 0.7);
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+}
+
+.__NAMESPACE_PREFIX__-tooltip.translucent-theme .__NAMESPACE_PREFIX__-backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.__NAMESPACE_PREFIX__-tooltip.translucent-theme .__NAMESPACE_PREFIX__-roundarrow {
+  fill: rgba(0, 0, 0, 0.7);
+}
+
+.__NAMESPACE_PREFIX__-tooltip.translucent-theme[data-animatefill] {
+  background-color: transparent;
+}
+/*# sourceMappingURL=translucent.css.map */

@@ -1,0 +1,193 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tooltip.js</title>
+
+      <!-- jquery-3.3.1 -->
+      <script src="./plugins/jquery-3.3.1.min.js"></script>
+
+</head>
+  <body cz-shortcut-listen="true">
+
+        <br><br><br><br><br><br>
+
+            <!-- <div class="rel" id="example10treference1" aria-describedby="tooltip_fzzc7ynlq1" style="border:solid 1px #f00;"> -->
+            <div class="rel" id="example10treference1" style="border:solid 1px #f00; width:400px;margin:auto;">
+                <p class="bold">It just works</p>
+                <p class="thin">Hover me to see 4 tooltips!</p>
+            </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    var index = 0;
+    var popper;
+
+    new Tooltip(document.getElementById("example10treference1"), {
+        placement: "top",
+        title: "Top",
+    });
+    new Tooltip(document.getElementById("example10treference1"), {
+        placement: "right",
+        title: "Right",
+    });
+    new Tooltip(document.getElementById("example10treference1"), {
+        placement: "bottom",
+        title: "Bottom",
+    });
+    new Tooltip(document.getElementById("example10treference1"), {
+        placement: "left",
+        title: "Left",
+    });
+});
+
+</script>
+
+            <br><br><br><br><br><br><br>
+<div class="rel" id="example20treference1" style="width:40%; margin:auto; border:solid 10px #0f0;">
+    <p class="bold">クリックする triggered</p>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    var index = 0;
+    var popper;
+
+    var instance = new Tooltip(document.getElementById("example20treference1"), {
+        title: "Hey there",
+        trigger: "click",
+    });
+    instance.show();
+});
+</script>
+
+
+<br><br><br><br><br><br><br>
+
+test1<input id="test1" />
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+test2<input id="test2" />
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+test3<input id="test3" />
+<br>
+<br>
+<br>
+<br>
+<br>
+test4<input id="test4">
+<br>
+<br>
+<br>
+<br>
+<br>
+<div style="margin-left:200px;">
+    <label for="test11-1">
+        <input type="radio" value="1" name="test11" id="test11_1" />あああ
+    </label>
+    <label for="test11-2">
+        <input type="radio" value="1" name="test11" id="test11-2" />いいい
+    </label>
+</div>
+
+<br>
+<br>
+<div id="pop1" style="max-width:400px; padding:0.5rem; border:solid 1px #f00; background-color:#0f0; margin-bottom:5px; " >key upイベントでON/OFFが切り替わります</div>
+<div id="pop2">focusかつ未入力で表示、keyupで非表示</div>
+<div id="pop3">タイムアウトで非表示</div>
+
+
+<script src="https://unpkg.com/popper.js@^1"></script>
+<script src="https://unpkg.com/tooltip.js@^1"></script>
+
+
+
+<script>
+  var d_test1 = document.querySelector('#test1');
+//   var d_test2 = document.querySelector('#test2');
+  var d_test3 = document.querySelector('#test3');
+//   var d_test4 = document.querySelector('#test4');
+//   var name = document.querySelector('#test3');
+  var pop1 = document.querySelector('#pop1');
+  var pop2 = document.querySelector('#pop2');
+//   var pop3 = document.querySelector('#pop3');
+  // console.log(reference,"reference");
+  // console.log($('.my-button'),"reference");
+  // console.log(popper,"popper");
+  // console.log($('.my-popper'),"popper");
+
+
+// tooltip
+// document.querySelector　又は　jQueryのエレメントを指定する
+// https://popper.js.org/tooltip-documentation.html
+  const TooltipInstance = new Tooltip($('#test11_1'), {
+      placement: 'top-end',
+      html:true,
+      title: "focusイベントで表示 100ms後に表示、focusが外れた後2000ms後に非表示",
+      trigger: "focus",
+      delay : { show: 100, hide: 2000},
+  });
+  const TooltipInstance2 = new Tooltip($('#test4'), {
+      placement: 'bottom-start',
+      title: "hover, focusで発生(標準)",
+    //   trigger: "hover focus",
+  });
+$('#test4').on('keyup', function(){
+    TooltipInstance2.hide();
+});
+
+//   TooltipInstance.show();
+//   TooltipInstance2.show();
+
+
+
+//popper
+// 要件的にはカスタマイズしやすいこっちかなぁ・・・？
+var popperInstance = new Popper(test1, pop1, {
+    placement: 'top-start',
+});
+
+$('#test1').on('keyup', function(){
+    $(pop1).toggle();
+});
+
+//popper
+var popperInstance2 = new Popper($('#test2'), pop2, {
+    placement: 'top-start',
+});
+
+$('#test2').on('focus', function(){
+    if($(this).val() === '') $(pop2).show();
+});
+$('#test2').on('keyup blur', function(){
+    $(pop2).hide();
+});
+
+// //popper
+// var popperInstance3 = new Popper($('#test11_1'), $('#pop3'), {
+//     placement: 'top-start',
+// });
+
+// $('#test11_1').on('click', function(){
+//     $('#pop3').show();
+//     setTimeout(function(){
+//         $('#pop3').hide();
+//     },2000);
+// });
+
+
+</script>
+      <script src="https://unpkg.com/popper.js@^1"></script>
+      <script src="https://unpkg.com/tooltip.js@^1"></script>
+  </body>
+</html>

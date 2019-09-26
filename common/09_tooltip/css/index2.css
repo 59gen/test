@@ -1,0 +1,26 @@
+.tooltip-primary, .tooltip-caution {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0.5em;
+  width: 200px;
+}
+
+.tooltip-primary {
+  background-color: #fff;
+  border: 2px solid #33c;
+}
+
+.tooltip-caution {
+  background-color: #fff;
+  border: 2px solid #cc3;
+  color: #f00;
+}
+
+.btn-box {
+  margin-left: 100px;
+  border: solid 1px #f00;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=index2.css.map */
